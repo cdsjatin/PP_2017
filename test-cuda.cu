@@ -6,11 +6,9 @@
 void checkCUDAError(const char* msg);
 
 // Part 1 of 1: implement the kernel
-__global__ void reverseArrayBlock(int *d_out, int *d_in)
+__global__ void sample_sort(int *d_out, int *d_in)
 {
-    int in = threadIdx.x;
-    int out = blockDim.x - 1 - threadIdx.x;
-    d_out[out] = d_in[in];
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +45,7 @@ int main( int argc, char** argv)
     // launch kernel
     dim3 dimGrid(numBlocks);
     dim3 dimBlock(numThreadsPerBlock);
-    reverseArrayBlock<<< dimGrid, dimBlock >>>( d_b, d_a );
+    sample_sort<<< dimGrid, dimBlock >>>( d_b, d_a );
 
     // block until the device has completed
     cudaThreadSynchronize();
