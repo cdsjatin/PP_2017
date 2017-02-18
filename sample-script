@@ -1,0 +1,6 @@
+# !/bin/sh
+#PBS -N myjob
+
+cd /home/secvss/cuda-test
+./test-cuda
+
