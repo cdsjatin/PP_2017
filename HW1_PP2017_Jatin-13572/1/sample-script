@@ -1,0 +1,10 @@
+# !/bin/csh
+#PBS -N myjob
+#PBS -l nodes=10:ppn=8               
+
+cd /home/jatin/PP/HW/HW1          # Direct it to your current working directory
+mpirun -np 8 -hostfile $PBS_NODEFILE ./collComm
+mpirun -np 16 -hostfile $PBS_NODEFILE ./collComm
+mpirun -np 32 -hostfile $PBS_NODEFILE ./collComm
+mpirun -np 64 -hostfile $PBS_NODEFILE ./collComm
+
